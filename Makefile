@@ -1,25 +1,16 @@
-CC       = cc
+CC       = gcc
 CFLAGS	 = -DHAVE_LASTLOG_H
 STATIC   = -static
 
 
 SRCS   = checkdirs.c 
 
-OBJS   = checkdirs.o 
+OBJS   = checkdirs 
 
 
 all:
-	@echo '*** stopping make sense ***'
-	@exec make sense
-sense: checkdirs
-checkproc:   checkproc.c
-	${CC} ${LDFLAGS} -o $@ checkproc.c
-	@strip $@
-
-chedirs:   checkdirs.c
-	${CC} ${LDFLAGS} -o $@ checkdirs.c
-	@strip $@
+	${CC} ${CFLAGS} checkdirs.c -o ${OBJS}
 
 
 clean: 
-	rm -f ${OBJS} core checkproc checkdirs
+	rm -f ${OBJS} core 
