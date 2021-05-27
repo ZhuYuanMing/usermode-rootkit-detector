@@ -707,7 +707,6 @@ echo "Checking /etc/ld.so.preload ..."
 if [ ! -d $Find_file ]; then
 	if [ `grep -c ${Find_str} ${Find_file}` > /dev/null 2>&1 ]; then
 	    echo "There might be userspace rootkit, you need to recheck "
-	    exit 0
 	else 
 	    echo "Do not find any changes on ld_preload"	    
 	fi 
