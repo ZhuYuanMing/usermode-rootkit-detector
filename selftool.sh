@@ -728,10 +728,14 @@ done
 
 echo $dirs
 
-if ./checkdirs $dirs; then
-    echo "checkdir: Nothing is detected"
-else
-    echo "checkdir:There might be usermode rootkit"
+if [  -x ./checkdirs ];then
+    if ./checkdirs $dir;then 
+	echo "checkdir: Nothing is detected"
+    else  
+	echo "checkdir:There might be usermode rootkit"
+    fi
+else 
+    echo "Please make at first"
 fi 
 
 # all works have been done
