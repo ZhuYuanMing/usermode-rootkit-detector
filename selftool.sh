@@ -701,12 +701,12 @@ done
 
 #check userspace rootkit for those using ld_preload
 Find_file="/etc/ld.so.preload"
-Find_str="lib/libselinux.so"
+Find_str=".so"
 echo "Checking /etc/ld.so.preload ..."
 
 if [ ! -d $Find_file ]; then
-	if [ `grep -c ${Find_str} ${Find_file}` > /dev/null 2>&1 ]; then
-	    echo "There might be userspace rootkit, you need to recheck "
+	if [ `grep -i ${Find_str} ${Find_file}` > /dev/null 2>&1 ]; then
+	    echo "There might be userspace rootkit, you need to recheck by sysdig "
 	else 
 	    echo "Do not find any changes on ld_preload"	    
 	fi 
